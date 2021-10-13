@@ -87,6 +87,12 @@ class Content extends Component {
             return valid;
         }
 
+        if (password.includes('"') || password.includes("'") || password.includes('<') || password.includes('>') || password.includes('=')) {
+            valid.state = false;
+            valid.currentError = t('login:alerts.invalid_characters_password');
+            return valid;
+        }
+
         return valid;
     }
 
@@ -154,7 +160,7 @@ class Content extends Component {
                                             className="attribute-type-login pointer"
                                             maxLength={40}
                                             value={username}
-                                            onChange={e => this.handleChange(e)}
+                                            onChange={(e) => this.handleChange(e)}
                                         >
                                             {t('username.label')}
                                         </MaterialInput>
@@ -167,7 +173,7 @@ class Content extends Component {
                                             className="attribute-type-login pointer"
                                             maxLength={40}
                                             value={password}
-                                            onChange={e => this.handleChange(e)}
+                                            onChange={(e) => this.handleChange(e)}
                                         >
                                             {t('login:password.label')}
                                         </MaterialInput>
@@ -234,12 +240,12 @@ class Content extends Component {
                             <div className="slogan">
                                 <b>Do IoT</b>
                                 <br />
-Easy to use
+                                Easy to use
                                 <br />
-                Fast to develop
+                                Fast to develop
                                 <br />
                                 {' '}
-Safe to deploy
+                                Safe to deploy
                             </div>
                         </div>
                     </div>
