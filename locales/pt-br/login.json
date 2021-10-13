@@ -6,7 +6,8 @@
     "invalid_user": "Nome de usuário invalido: Use apenas letras (a-z) e números (0-9).",
     "empty": "Aa senhas devem ser inseridas",
     "least_8": "A senha deve conter pelo menos 8 caracteres",
-    "password_mismatch": "Senhas não coincidem"
+    "password_mismatch": "Senhas não coincidem",
+    "invalid_characters_password": "Caracteres inválidos na senha"
   },
   "errors": {
     "not_found": "Usuário não encontrado ou senha incorreta.",

@@ -6,7 +6,8 @@
         "invalid_user": "Invalid username: Please use letters (a-z) and numbers (0-9)",
         "empty": "Passwords must be set",
         "least_8": "Password must be at least 8 characters",
-        "password_mismatch": "Password mismatch"
+        "password_mismatch": "Password mismatch",
+        "invalid_characters_password": "Invalid characters in password"
     },
     "errors": {
         "not_found": "User not found or wrong password.",
