@@ -68,6 +68,7 @@ class Content extends Component {
     validate(user, password) {
         const { t } = this.props;
         const valid = { state: true, currentError: '' };
+        const regexInvalidPasswd = /[^A-Za-z 0-9!@#$%&]/g;
 
         if (user.trim().length === 0) {
             valid.state = false;
@@ -87,7 +88,7 @@ class Content extends Component {
             return valid;
         }
 
-        if (password.includes('"') || password.includes("'") || password.includes('<') || password.includes('>') || password.includes('=')) {
+        if (regexInvalidPasswd.test(password)) {
             valid.state = false;
             valid.currentError = t('login:alerts.invalid_characters_password');
             return valid;
