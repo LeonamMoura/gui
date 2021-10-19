@@ -68,6 +68,7 @@ class Content extends Component {
     validate(user, password) {
         const { t } = this.props;
         const valid = { state: true, currentError: '' };
+        const regexInvalidPasswd = /[^A-Za-z 0-9!@#$%&]/g;
 
         if (user.trim().length === 0) {
             valid.state = false;
@@ -84,6 +85,12 @@ class Content extends Component {
         if (!this.checkUsername(user)) {
             valid.state = false;
             valid.currentError = t('login:alerts.invalid_user');
+            return valid;
+        }
+
+        if (regexInvalidPasswd.test(password)) {
+            valid.state = false;
+            valid.currentError = t('login:alerts.invalid_characters_password');
             return valid;
         }
 
@@ -154,7 +161,7 @@ class Content extends Component {
                                             className="attribute-type-login pointer"
                                             maxLength={40}
                                             value={username}
-                                            onChange={e => this.handleChange(e)}
+                                            onChange={(e) => this.handleChange(e)}
                                         >
                                             {t('username.label')}
                                         </MaterialInput>
@@ -167,7 +174,7 @@ class Content extends Component {
                                             className="attribute-type-login pointer"
                                             maxLength={40}
                                             value={password}
-                                            onChange={e => this.handleChange(e)}
+                                            onChange={(e) => this.handleChange(e)}
                                         >
                                             {t('login:password.label')}
                                         </MaterialInput>
@@ -234,12 +241,12 @@ class Content extends Component {
                             <div className="slogan">
                                 <b>Do IoT</b>
                                 <br />
-Easy to use
+                                Easy to use
                                 <br />
-                Fast to develop
+                                Fast to develop
                                 <br />
                                 {' '}
-Safe to deploy
+                                Safe to deploy
                             </div>
                         </div>
                     </div>
