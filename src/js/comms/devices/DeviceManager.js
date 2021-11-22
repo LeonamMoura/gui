@@ -73,7 +73,6 @@ class DeviceManager {
     }
 
     addDevice(d) {
-        d.id = util.sid();
         return util.POST(`${baseURL}device`, d);
     }
 
