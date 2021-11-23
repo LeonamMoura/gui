@@ -97,8 +97,6 @@ const ReportComponent = ({
         attrs.push('_'); // workaround to always request 2 attrs
         const mergedAttr = attrs.join('&attr=');
 
-        console.log(datetimeUTC(dateFrom), datetimeUTC(dateTo));
-
         historyManager.getHistory(
             deviceId,
             mergedAttr,
@@ -106,11 +104,9 @@ const ReportComponent = ({
             datetimeUTC(dateTo),
         ).then((result) => {
             const { _, ...rws } = result; // removing the workaround
-            console.log('$ => ', result);
             setRows(rws);
             setLoadedData(true);
         }).catch(() => {
-            console.log('errou aq');
             setRows([]);
             toaster.warning(t('report:reports.not_found'));
         });
