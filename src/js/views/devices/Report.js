@@ -119,7 +119,7 @@ const ReportComponent = ({
 
         // if there is no data
         const rowsAsList = Object.values(rows).flat();
-        if (!rowsAsList.length) return;
+        // if (!rowsAsList.length) return;
 
         // creates a empty row
         const emptyRow = { ts: '' };
@@ -151,7 +151,11 @@ const ReportComponent = ({
         // export to CSV
         try {
             const csvExporter = new ExportToCsv(getCsvConfig(deviceId, dateFrom, dateTo));
-            csvExporter.generateCsv(newTable);
+            csvExporter.generateCsv([
+                columns,
+                ...newTable,
+            ]);
+            if (newTable.length === 0) toaster.warning(t('report:no_data_for_period'));
         } catch (error) {
             toaster.warning(error);
         }

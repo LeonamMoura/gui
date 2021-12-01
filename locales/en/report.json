@@ -4,6 +4,7 @@
     "generate": "generate",
     "html": "as HTML",
     "csv": "as CSV",
+    "no_data_for_period": "Data not found for selected period.",
     "alerts": {
         "select_dy": "Select at least one Dynamic Attribute.",
         "datefrom_miss": "Fill in the start date correctly.",
