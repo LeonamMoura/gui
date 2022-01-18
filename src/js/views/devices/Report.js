@@ -1,3 +1,4 @@
+/* eslint-disable react/function-component-definition */
 import React, { Fragment, useEffect, useState } from 'react';
 import moment from 'moment';
 import historyManager from 'Comms/devices/HistoryManager';
