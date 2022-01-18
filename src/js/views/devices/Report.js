@@ -27,10 +27,10 @@ const datetimeLocalFormat = (t) => moment(t).format('YYYY-MM-DDTHH:mm');
 
 const datetimeUTC = (t) => moment(t).utc().format('YYYY-MM-DDTHH:mm');
 
-function ReportComponent({
+const ReportComponent = ({
     deviceId, deviceLabel,
     listAttrDySelected, t,
-}) {
+}) => {
     const [openHtml, setOpenHtml] = useState(false);
     const [loadedData, setLoadedData] = useState(false);
 
@@ -217,7 +217,7 @@ function ReportComponent({
             ) : <div />}
         </div>
     );
-}
+};
 
 ReportComponent.defaultProps = {
     listAttrDySelected: [],
