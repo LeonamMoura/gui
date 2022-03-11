@@ -1,3 +1,4 @@
+/* eslint-disable react/function-component-definition */
 import React, { Fragment, useEffect, useState } from 'react';
 import moment from 'moment';
 import historyManager from 'Comms/devices/HistoryManager';
@@ -23,7 +24,7 @@ const getCsvConfig = (deviceId, dateFrom, dateTo) => {
     };
 };
 
-const datetimeLocalFormat = (t) => moment(t).format('YYYY-MM-DDThh:mm');
+const datetimeLocalFormat = (t) => moment(t).format('YYYY-MM-DDTHH:mm');
 
 const datetimeUTC = (t) => moment(t).utc().format('YYYY-MM-DDTHH:mm');
 
