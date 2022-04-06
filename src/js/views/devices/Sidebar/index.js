@@ -305,7 +305,7 @@ class Sidebar extends Component {
         const isValid = this.validDevice(saveDevice);
 
         if (isValid.result) {
-            FormActions.addDevice(saveDevice, selectedTemplates, () => {
+            FormActions.addDevice({ ...saveDevice, id: null }, selectedTemplates, () => {
                 toaster.success(t('devices:alerts.create'));
                 ops._fetch();
             });
