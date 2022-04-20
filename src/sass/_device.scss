@@ -903,6 +903,24 @@
 
     }
 
+    .device-id {
+      display: flex;
+      flex-direction: column;
+      padding: 0 20px;
+
+      .label {
+        font-family: Raleway, sans-serif;
+        font-weight: 500;
+        font-size: 17px;
+        color: #7C7C7C;
+      }
+
+      .device-id-input {
+        padding-left: 20px;
+      }
+
+    }
+
     .device-templates {
       display: flex;
       flex-direction: column;

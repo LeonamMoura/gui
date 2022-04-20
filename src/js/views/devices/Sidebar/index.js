@@ -40,6 +40,7 @@ class Sidebar extends Component {
         this.handleShowDeviceAttrs = this.handleShowDeviceAttrs.bind(this);
         this.handleSelectTemplate = this.handleSelectTemplate.bind(this);
         this.handleChangeName = this.handleChangeName.bind(this);
+        this.handleChangeId = this.handleChangeId.bind(this);
         this.handleChangeMetadata = this.handleChangeMetadata.bind(this);
         this.handleChangeMeta = this.handleChangeMeta.bind(this);
         this.handleChangeAttr = this.handleChangeAttr.bind(this);
@@ -137,6 +138,15 @@ class Sidebar extends Component {
     handleChangeName(value) {
         const { device } = this.state;
         device.label = value;
+        this.setState((prevState) => ({
+            ...prevState,
+            device,
+        }));
+    }
+
+    handleChangeId(value) {
+        const { device } = this.state;
+        device.id = value;
         this.setState((prevState) => ({
             ...prevState,
             device,
@@ -376,8 +386,14 @@ class Sidebar extends Component {
         }
 
         const isValidName = util.isNameValid(device.label);
+        const isValidId = util.isValidId(device.id);
+
         if (!isValidName.result) {
             return isValidName;
+        }
+
+        if (!isValidId.result) {
+            return isValidId;
         }
 
         return {
@@ -416,6 +432,7 @@ class Sidebar extends Component {
                         isNewDevice={isNewDevice}
                         isShowSidebarDelete={isShowSidebarDelete}
                         handleChangeName={this.handleChangeName}
+                        handleChangeId={this.handleChangeId}
                         handleShowManageTemplate={this.handleShowManageTemplate}
                         toogleSidebarImages={this.toogleSidebarImages}
                         handleShowDeviceAttrs={this.handleShowDeviceAttrs}
