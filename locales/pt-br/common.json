@@ -70,6 +70,9 @@
         "select_option_below": "Selecione uma opção abaixo",
         "select_type": "Selecione um tipo",
         "name": "Nome",
+        "id": "Id",
+        "help_device_id": "Caso não seja preenchido, o Id do dispositivo será gerado automaticamente pela Dojot.",
+        "optional": "Opcional",
         "management": "Gerenciar",
         "properties": "Propriedades",
         "set": "Definir",
@@ -133,7 +136,8 @@
         "api_502": "Falha ao acessar servidor.",
         "api_503": "Serviço temporariamente indisponível.",
         "alpha_number_hyphen": "Por favor use apenas letras (a-z), números (0-9), hífens (-), dois pontos (:) e sublinhados (_).",
-        "alpha_number_space_hyphen": "Por favor use apenas letras (a-z), números (0-9), espaços (), hífens (-), dois pontos (:) e sublinhados (_)."
+        "alpha_number_space_hyphen": "Por favor use apenas letras (a-z), números (0-9), espaços (), hífens (-), dois pontos (:) e sublinhados (_).",
+        "invalid_device_id": "o ID do dispositivo deve ter de 2-6 caracteres e precisa ser hexadecimal (0-9,a-f,A-F)."
     },
     "format": {
         "full_date": "DD/MM/YYYY",

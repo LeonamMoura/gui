@@ -280,6 +280,21 @@ class Util {
         return ret;
     }
 
+    isValidId(deviceId) {
+        const ret = { result: true, error: '', deviceId: deviceId.trim() }
+
+        const regex = /^[0-9a-fA-F]{2,6}$/
+        const isValid = regex.test(deviceId);
+
+        if (!isValid) {
+            ret.result = false;
+            ret.error = i18n.t('errors_msg.invalid_device_id');
+            return ret;
+        }
+
+        return ret;
+    }
+
     /**
      * @param name
      * @returns {{result: boolean, error: string, label: *}}

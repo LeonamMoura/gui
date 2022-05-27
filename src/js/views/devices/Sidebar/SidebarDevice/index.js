@@ -5,6 +5,8 @@ import { DojotBtnClassic } from 'Components/DojotButton';
 import SidebarButton from 'Components/SidebarButton';
 import MaterialInput from 'Components/MaterialInput';
 import { withNamespaces } from 'react-i18next';
+import Tooltip from '@material-ui/core/Tooltip';
+import FormHelperText from '@material-ui/core/FormHelperText';
 import { FormActions } from '../../Actions';
 import SidebarDelete from '../../../templates/TemplateList/Sidebar/SidebarDelete';
 
@@ -16,6 +18,7 @@ const SidebarDevice = ({
     toogleSidebarImages,
     device,
     handleChangeName,
+    handleChangeId,
     save,
     update,
     remove,
@@ -68,9 +71,31 @@ const SidebarDevice = ({
                                         </div>
                                     </div>
 
+                                    <div className="device-id">
+                                        <div className="label">
+                                            <span>{`2.  ${t('text.set')} ${t('text.a')} ${t('text.id')} (${t('text.optional')}) `}</span>
+                                            <Tooltip
+                                                placement="center"
+                                                title={t('text.help_device_id')}
+                                            >
+                                                <i className="material-icons">help_outline</i>
+                                            </Tooltip>
+                                        </div>
+                                        <div className="device-id-input">
+                                            <MaterialInput
+                                                name="name"
+                                                value={device.id}
+                                                onChange={(e) => handleChangeId(e.target.value)}
+                                            >
+                                                {t('text.id')}
+                                            </MaterialInput>
+                                            <FormHelperText>Disabled</FormHelperText>
+                                        </div>
+                                    </div>
+
                                     <div className="device-templates">
                                         <div className="label">
-                                            {`2.  ${t('add.label')} ${t('text.or')}  ${t('remove.label')} ${t('templates:title')} `}
+                                            {`3.  ${t('add.label')} ${t('text.or')}  ${t('remove.label')} ${t('templates:title')} `}
                                         </div>
 
                                         {
@@ -113,7 +138,7 @@ const SidebarDevice = ({
 
                                     <div className="device-attrs">
                                         <div className="label">
-                                            {`3. ${t('devices:manage_attributes')}`}
+                                            {`4. ${t('devices:manage_attributes')}`}
                                         </div>
                                         {/* <SidebarButton
                                             onClick={() =>
@@ -235,6 +260,7 @@ SidebarDevice.propTypes = {
     t: PropTypes.func.isRequired,
     hasTemplateWithImages: PropTypes.bool.isRequired,
     handleChangeName: PropTypes.func.isRequired,
+    handleChangeId: PropTypes.func.isRequired,
     save: PropTypes.func.isRequired,
     update: PropTypes.func.isRequired,
     remove: PropTypes.func.isRequired,
