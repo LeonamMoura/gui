@@ -315,7 +315,7 @@ class Sidebar extends Component {
         const isValid = this.validDevice(saveDevice);
 
         if (isValid.result) {
-            FormActions.addDevice({ ...saveDevice, id: null }, selectedTemplates, () => {
+            FormActions.addDevice({ ...saveDevice, id: saveDevice.id === '' ? null : saveDevice.id }, selectedTemplates, () => {
                 toaster.success(t('devices:alerts.create'));
                 ops._fetch();
             });
@@ -392,7 +392,7 @@ class Sidebar extends Component {
             return isValidName;
         }
 
-        if (!isValidId.result) {
+        if (!isValidId.result && device.id !== '') {
             return isValidId;
         }
 
